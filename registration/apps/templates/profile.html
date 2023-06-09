@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'enroll/css/bootstrap.min.css'%}"> 
+ 
+    <title>Profile</title>
+</head>
+<body>
+
+   <div class="container">  {% if users != None %}
+    <h3>List Of Users</h3>
+    {% for user in users %}
+   <b><a href="{% url 'userdetails' user.id %}" class="btn btn-primary">{{user.username}}</a><br><br> </b><br>
+    {% endfor %}
+    {% endif %}</div>
+
+
+    <h3> Update Your Profile</h3>
+    <div class="container mt-4">
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" class="btn btn-primary" value="Save"><br><br>
+            
+
+</form>
+</div>
+ 
+    {% csrf_token %}
+    <div class=" text-center container  mt-4">
+     <h2>
+        Welcome To Profile Page {{name}}
+    </h2>
+  
+    
+    <a href="{% url 'login' %}" class="btn btn-primary">Back To Log In</a><br><br>
+
+    <a href="{% url 'signup' %}" class="btn btn-primary">Back To sign In</a><br> <br>
+
+    <a href="{% url 'logout' %}"class="btn btn-primary">Back To Log Out</a><br><br>
+    
+    <a href="{% url 'changepassword' %}"class="btn btn-warning">change Password</a><br> <br>
+
+    <a href="{% url 'changepassword1' %}"class="btn btn-warning">change Password1</a>
+</div>
+
+    {% if messages %}
+    {% for message in messages %}
+
+    <h2> {{message}} </h2>
+    
+    {% endfor %}
+    {% endif %}
+ 
+    <script src="{% static 'enroll/js/bootstrap.min.js'%}"></script>
+    <script src="{% static 'enroll/js/proper.js'%}"></script>
+    <script src="{% static 'enroll/js/jquery.js'%}"></script>
+</body>
+</body>
+</html>

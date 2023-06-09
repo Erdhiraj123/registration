@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'enroll/css/bootstrap.min.css'%}"> 
+    <title>Profile Pages</title>
+</head>
+<body>
+    <h3>profile Pages</h3>
+    <h3>Welcome</h3>
+    <form action="" method="POST">
+        {{form.as_p}}
+    </form>
+    <div class="container">
+    <a href="{% url 'profile' %}" class="btn btn-primary">Profile</a>
+    <a href="{% url 'logout' %}" class="btn btn-warning">Log out</a> </div>
+    <script src="{% static 'enroll/js/bootstrap.min.js'%}"></script>
+    <script src="{% static 'enroll/js/proper.js'%}"></script>
+    <script src="{% static 'enroll/js/jquery.js'%}"></script>
+</body>
+</html>
